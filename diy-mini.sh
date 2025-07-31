@@ -191,8 +191,8 @@ cp -f $GITHUB_WORKSPACE/configfiles/WirelessDriver/mt7916_eeprom.bin package/bas
 
 
 # rtl8367b驱动资源包，暂时使用这样替换
-wget https://github.com/xiaomeng9597/files/releases/download/files/rtl8367b-fix-gmac.tar.gz
-tar -xvf rtl8367b-fix-gmac.tar.gz
+wget https://github.com/xiaomeng9597/files/releases/download/files/rtl8367b-fix-gmac-lede.tar.gz
+tar -xvf rtl8367b-fix-gmac-lede.tar.gz
 
 
 # openwrt主线rtl8367b驱动资源包，暂时使用这样替换
