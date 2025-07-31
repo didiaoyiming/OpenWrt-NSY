@@ -10,6 +10,7 @@ rockchip_setup_interfaces()
 	case "$board" in
 	advantech,rsb4810|\
 	ariaboard,photonicat|\
+	ariaboard,photonicat2|\
 	dilusense,dlfr100|\
 	ezpro,mrkaio-m68s|\
 	ezpro,mrkaio-m68s-plus|\
@@ -37,6 +38,7 @@ rockchip_setup_interfaces()
 	firefly,rk3568-roc-pc|\
 	friendlyarm,nanopi-r3s|\
 	friendlyarm,nanopi-r5c|\
+	friendlyarm,nanopi-r76s|\
 	friendlyarm,nanopc-t6|\
 	hinlink,opc-h28k|\
 	mmbox,anas3035|\
@@ -66,12 +68,14 @@ rockchip_setup_interfaces()
 		;;
 	nsy,g68-plus|\
 	bdy,g18-pro)
+		ucidef_set_interfaces_lan_wan "eth0" "eth1"
 		ucidef_add_switch "switch0" \
-			"0:lan:3" "1:lan:2" "2:lan:1" "3:lan:0" "4:wan" "7t@eth0"
+			"0:lan:3" "1:lan:2" "2:lan:1" "3:lan:0" "4:wan" "6t@eth0" "7t@eth1"
 		;;
 	nsy,g16-plus)
+		ucidef_set_interfaces_lan_wan "eth0" "eth1"
 		ucidef_add_switch "switch0" \
-			"1:lan:2" "2:lan:1" "3:lan:0" "0:wan" "7t@eth0"
+			"1:lan:2" "2:lan:1" "3:lan:0" "0:wan" "6t@eth0" "7t@eth1"
 		;;
 	*)
 		ucidef_set_interface_lan 'eth0'
@@ -114,6 +118,7 @@ rockchip_setup_macs()
 	bdy,g18-pro|\
 	advantech,rsb4810|\
 	ariaboard,photonicat|\
+	ariaboard,photonicat2|\
 	codinge,xiaobao-nas-v1|\
 	dilusense,dlfr100|\
 	ezpro,mrkaio-m68s|\
@@ -153,6 +158,10 @@ rockchip_setup_macs()
 	friendlyarm,nanopi-r6s|\
 	sharevdi,guangmiao-g4c)
 		wan_mac=$(macaddr_generate_from_mmc_cid mmcblk1)
+		lan_mac=$(macaddr_add "$wan_mac" +1)
+		;;
+	friendlyarm,nanopi-r76s)
+		wan_mac=$(macaddr_generate_from_mmc_cid mmcblk2)
 		lan_mac=$(macaddr_add "$wan_mac" +1)
 		;;
 	xunlong,orangepi-r1-plus|\

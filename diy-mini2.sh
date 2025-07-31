@@ -185,9 +185,9 @@ cp -f $GITHUB_WORKSPACE/configfiles/dts/rk3568-bdy-g18-pro.dts target/linux/rock
 cp -f $GITHUB_WORKSPACE/configfiles/dts/rk3588-orangepi-5-plus.dts target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
 
 
-# 电工大佬的rtl8367b驱动资源包，暂时使用这样替换
-wget https://github.com/xiaomeng9597/files/releases/download/files/rtl8367b.tar.gz
-tar -xvf rtl8367b.tar.gz
+# rtl8367b驱动资源包，暂时使用这样替换
+wget https://github.com/xiaomeng9597/files/releases/download/files/rtl8367b-fix-gmac.tar.gz
+tar -xvf rtl8367b-fix-gmac.tar.gz
 
 
 # openwrt主线rtl8367b驱动资源包，暂时使用这样替换
