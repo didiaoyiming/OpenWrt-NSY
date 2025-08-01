@@ -771,7 +771,7 @@
 };
 
 &gmac1 {
-	status = "okay";
+	status = "disabled";
 	phy-mode = "sgmii";
 	rockchip,pipegrf = <&pipegrf>;
 	rockchip,xpcs = <&xpcs>;
