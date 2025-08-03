@@ -4,8 +4,8 @@
 	interrupt-parent = <0x01>;
 	#address-cells = <0x02>;
 	#size-cells = <0x02>;
-	compatible = "bendian,bd-one\0rockchip,rk3568";
-	model = "BenDian One";
+	model = "NSY-G68 AX3000 Router";
+	compatible = "nsy,g68-plus", "rockchip,rk3568";
 
 	aliases {
 		gpio0 = "/pinctrl/gpio@fdd60000";
